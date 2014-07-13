@@ -5,32 +5,43 @@ public class StringCalculator {
 	public static void main(String [] args){
 		Scanner sc = new Scanner(System.in);
 		String quit = "";
-		do
-		{
-			System.out.println("Input text: ");
-			String nums = sc.nextLine();
-			
-			String [] numbers = nums.split(",|\\\\n");
-			int sum = 0;
-			for(int i = 0; i < numbers.length; i++)
-			{
-				if(numbers[i].equals(""))
-				{
-					break;
-				}
-				
-				sum = sum + Integer.parseInt(numbers[i]);
-			}
-			
-			System.out.println("The sum is "+sum);
-			
-			System.out.println("Enter 'q' if you want to quit");
-			quit = sc.nextLine(); 
+		
+		do{
+			String [] numbers = inputNumbers(sc);
+			addNumbers(numbers);		
+			quit = ask(sc);	 
 			
 		}while(!quit.equals("q"));
+			
+		System.out.println("Bye!");
 		sc.close();
 		
+	}
+	
+	public static String[] inputNumbers(Scanner sc){
+		System.out.println("Input numbers: ");
+		return sc.nextLine().split(",|\\\\n");
+	}
+	
+	public static void addNumbers(String [] numbers){
+		int sum = 0;
 		
+		if(numbers[0].equals("")){
+			System.out.println("The sum is "+sum);
+			return;
+		}
+		
+		for(int i = 0; i < numbers.length; i++){
+			sum = sum + Integer.parseInt(numbers[i]);
+		}
+		System.out.println("The sum is "+sum);
+		
+	}
+	
+	public static String ask(Scanner sc)
+	{
+		System.out.println("Enter 'q' if you want to quit");
+		return sc.nextLine();
 	}
 	
 }
