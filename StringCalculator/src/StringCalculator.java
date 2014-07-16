@@ -8,9 +8,7 @@ public class StringCalculator {
 		
 		do{
 			String value = inputString(sc);
-			String [ ] values = split(value);
-			int [] nums = toInt(values);
-			sum(nums);		
+			add(value);		
 			quit = ask(sc);	 
 			
 		}while(!quit.equals("q"));
@@ -24,9 +22,15 @@ public class StringCalculator {
 		return sc.nextLine();
 	}
 	
+	public static int add(String value){
+		String [ ] values = split(value);
+		int [] nums = toInt(values);
+		return sum(nums);
+	}
+	
 	public static String [] split(String value)
 	{
-		return value.split(",|\\\\n");
+		return value.split(",|\n");
 	}
 	
 	public static int [] toInt(String [ ] values)
