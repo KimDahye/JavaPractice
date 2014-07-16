@@ -7,40 +7,41 @@ public class StringCalculator {
 		String quit = "";
 		
 		do{
-			String [] values = inputNumbers(sc);
-			add(values);		
+			String value = inputString(sc);
+			String [ ] values = split(value);
+			int [] nums = toInt(values);
+			sum(nums);		
 			quit = ask(sc);	 
 			
 		}while(!quit.equals("q"));
 			
 		System.out.println("Bye!");
 		sc.close();
-		
 	}
 	
-	public static String[] inputNumbers(Scanner sc){
-		System.out.println("Input numbers: ");
-		return sc.nextLine().split(",|\\\\n");
+	public static String inputString(Scanner sc){
+		System.out.println("Input numbers with delimiter , and \n: ");
+		return sc.nextLine();
 	}
 	
-	public static void add(String [] values){
+	public static String [] split(String value)
+	{
+		return value.split(",|\\\\n");
+	}
+	
+	public static int [] toInt(String [ ] values)
+	{
+		int [ ] result = new int [values.length];
 		
 		if(values[0].equals("")){
-			System.out.println("The sum is 0.");
-			return;
+			result[0] = 0;
+			return result; 
 		}
 		
-		int [] numbers = toInt(values); 
-		System.out.println("The sum is "+ sum(numbers));
-		
-	}
-	
-	public static int [] toInt(String [] values)
-	{
-		int [] result = new int [values.length];
 		for(int i = 0; i < values.length; i++){
 			result [i] = Integer.parseInt(values[i]);
 		}
+		
 		return result;
 	}
 	
@@ -49,6 +50,7 @@ public class StringCalculator {
 		for(int i = 0; i < numbers.length; i++){
 			sum = sum+ numbers [i]; 
 		}
+		System.out.println("The sum is "+ sum);
 		return sum;
 	}
 	
