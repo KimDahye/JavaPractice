@@ -18,7 +18,7 @@ public class StringCalculator {
 	}
 	
 	public static String inputString(Scanner sc){
-		System.out.println("Input numbers with delimiter , and \n: ");
+		System.out.println("Input numbers with delimiter (,) and (:) ");
 		return sc.nextLine();
 	}
 	
@@ -30,7 +30,7 @@ public class StringCalculator {
 	
 	public static String [] split(String value)
 	{
-		return value.split(",|\n");
+		return value.split(",|:");
 	}
 	
 	public static int [] toInt(String [ ] values)

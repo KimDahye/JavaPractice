@@ -22,13 +22,13 @@ public class StringCalculatorTest extends TestCase {
 		assertEquals(13, result);		
 	}
 	
-	public void testWhenThreeCahrNewLine() {
-		int result = StringCalculator.add("1\n2\n10");
+	public void testWhenThreeCahrColon() {
+		int result = StringCalculator.add("1:2:10");
 		assertEquals(13, result);		
 	}
 	
-	public void testWhenThreeCahrCommaNewLine() {
-		int result = StringCalculator.add("1,2\n10");
+	public void testWhenThreeCahrCommaColon() {
+		int result = StringCalculator.add("1,2:10");
 		assertEquals(13, result);		
 	}
 	
