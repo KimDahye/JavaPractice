@@ -7,6 +7,7 @@ public class Minimi {
 
 	public Minimi(int startingPos) {
 		this.startingPos = 2 * startingPos - 1;
+		System.out.println(">"+startingPos);
 		presentPos = new Node(0, this.startingPos);
 		path.add(presentPos);
 		
@@ -22,22 +23,19 @@ public class Minimi {
 
 	public void run(Ladder ladder) {
 		while(!ladder.isEnd(presentPos)){
-			if(ladder.isCrossable(presentPos) && !isPassed())
-			{
-				cross(presentPos);
+			if(ladder.isCrossable(presentPos) && !isPassed()){
+				cross(ladder);
 				continue;
-				  
 			}
 			
 			moveForward();
 		}
 	}
 	
-	private void cross(Node presentPos){
+	private void cross(Ladder ladder){
 		//미니미 현재 포지션 왼쪽으로 두칸, 혹은 오른쪽으로 두칸 바꿔줌
 		//path에 경로 더하기
-		if(left().getRow() == 1)
-		{
+		if(ladder.isOne(left())){
 			presentPos = left();
 			path.add(presentPos);
 			presentPos = left();

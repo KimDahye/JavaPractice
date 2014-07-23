@@ -56,6 +56,14 @@ public class Ladder {
 		// }
 
 	}
+	public boolean isOne(Node node){
+		int x = board[node.getRow()][node.getCol()];
+		if( x== 1)
+		{
+			return true;
+		}
+		return false;
+	}
 
 	public boolean isEnd(Node presentPos) {
 		int row = presentPos.getRow();
@@ -70,7 +78,7 @@ public class Ladder {
 	public boolean isCrossable(Node presentPos) {
 		int row = presentPos.getRow();
 		int col = presentPos.getCol();
-		if (board[row][col - 1] == 1 || board[row][col] == 1) {
+		if (board[row][col - 1] == 1 || board[row][col + 1] == 1) {
 			return true;
 		}
 

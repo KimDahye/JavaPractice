@@ -4,7 +4,7 @@ public class Node {
 
 	public Node(int row, int col) {
 		this.row = row;
-		this.row = col;
+		this.col = col;
 	}
 	
 	public int getRow(){
