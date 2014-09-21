@@ -35,7 +35,7 @@ public class BoardTest extends TestCase {
 	
 	public void testSetNumbers() throws Exception{
 		// 0 1 2 2 2 *
-		// 1 2 * * 2 0
+		// 1 2 * * 2 1
 		// 1 * 4 3 2 0
 		// 2 2 3 * 1 0
 		// 1 * 3 2 2 0
@@ -43,10 +43,13 @@ public class BoardTest extends TestCase {
 		board.setNumber(new Point(3,3));
 		board.setNumber(new Point(3,4));
 		board.setNumber(new Point(1,1));
+		board.setNumber(new Point(3,2));
+		board.setNumber(new Point(4,4));
 		assertTrue(board.isEqual(new Point(3, 4), new Cell(Type.FOUR)));
 		assertTrue(board.isEqual(new Point(1, 1), new Cell(Type.ONE)));
 		assertTrue(board.isEqual(new Point(3, 3), new Cell(Type.THREE)));
-		
+		assertTrue(board.isEqual(new Point(3,2), new Cell(Type.THREE)));
+		assertTrue(board.isEqual(new Point(4,4), new Cell(Type.THREE)));
 	}
 	
 	public void testChangeStatus() throws Exception {

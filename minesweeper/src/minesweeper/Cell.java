@@ -31,6 +31,10 @@ class Cell {
 		this.status = Status.UNCHECKED;
 	}
 	
+	Status getStatus(){
+		return status;
+	}
+	
 	void setStatus(Status status){
 		this.status = status;
 	}
@@ -54,6 +58,13 @@ class Cell {
 	
 	boolean isSameTypeWith(Type type){
 		if(this.type == type){
+			return true;
+		}
+		return false;
+	}
+	
+	boolean isSameStatusWith(Status status){
+		if(this.status == status){
 			return true;
 		}
 		return false;
