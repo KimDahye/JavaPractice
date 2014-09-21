@@ -19,20 +19,20 @@ class Cell {
 	}
 	
 	private final Type type;
-	private final Status status;
+	private Status status;
 	
-	Cell(Type type, Status status){
+	Cell(Type type){
 		this.type = type;
-		this.status = status;
+		this.status = Status.UNCHECKED;
 	}
 	
-	Cell(int type, Status status){
+	Cell(int type){
 		this.type = Type.values()[type];
-		this.status = status;
+		this.status = Status.UNCHECKED;
 	}
 	
-	Type getType(){
-		return type;
+	void setStatus(Status status){
+		this.status = status;
 	}
 	
 	public String toString(){
