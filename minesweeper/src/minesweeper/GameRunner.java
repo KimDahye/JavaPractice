@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import minesweeper.Cell.Status;
 import minesweeper.Cell.Type;
-import minesweeper.MineSweeperGame.GameStatus;
 
 class GameRunner {
 	BoardCreator boardCreator;
@@ -14,13 +13,17 @@ class GameRunner {
 	final static int CLICKED = 0;
 	final static int FLAGED = 1;
 	
+	enum GameStatus { 
+		NOT_ENDED, WIN, LOSE; 
+	}
+	
 	GameRunner(BoardCreator boardCreator, int NUM_OF_MINES){
 		this.boardCreator = boardCreator;
 		this.NUM_OF_MINES = NUM_OF_MINES;
 	}
 	
 	void run(){
-		while(whatsGameStatus() == GameStatus.NOTENDED){
+		while(whatsGameStatus() == GameStatus.NOT_ENDED){
 			printCurrentBoard();
 			Point point = receivePoint();
 			int status = receiveStatus();
@@ -96,7 +99,7 @@ class GameRunner {
 		}
 		
 		if(count != NUM_OF_MINES){
-			return GameStatus.NOTENDED;
+			return GameStatus.NOT_ENDED;
 		}
 		
 		return GameStatus.WIN;
