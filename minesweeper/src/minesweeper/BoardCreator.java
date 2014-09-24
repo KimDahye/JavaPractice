@@ -2,8 +2,6 @@ package minesweeper;
 
 import java.util.HashMap;
 
-import minesweeper.Cell.Status;
-import minesweeper.Cell.Type;
 
 class BoardCreator {
 	private final int width;
