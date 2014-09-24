@@ -18,4 +18,8 @@ public class RandomMineSetter implements MineSetter {
 		// TODO Auto-generated method stub
 		//Random하게 지뢰 n개 배치하는 메소드.
 	}
+	
+	public HashMap<Point, Cell> getBoard(){
+		return manualMineSetter.getBoard();
+	}
 }

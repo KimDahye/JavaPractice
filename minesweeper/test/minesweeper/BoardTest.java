@@ -45,11 +45,13 @@ public class BoardTest extends TestCase {
 		board.setNumber(new Point(1,1));
 		board.setNumber(new Point(3,2));
 		board.setNumber(new Point(4,4));
+		board.setNumber(new Point(5,6));
 		assertTrue(board.isEqual(new Point(3, 4), new Cell(Type.FOUR)));
 		assertTrue(board.isEqual(new Point(1, 1), new Cell(Type.ONE)));
 		assertTrue(board.isEqual(new Point(3, 3), new Cell(Type.THREE)));
 		assertTrue(board.isEqual(new Point(3,2), new Cell(Type.THREE)));
 		assertTrue(board.isEqual(new Point(4,4), new Cell(Type.THREE)));
+		assertTrue(board.isEqual(new Point(5,6), new Cell(Type.TWO)));
 	}
 	
 	public void testChangeStatus() throws Exception {

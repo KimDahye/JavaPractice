@@ -5,8 +5,7 @@ import java.util.HashMap;
 import minesweeper.Cell.Status;
 import minesweeper.Cell.Type;
 
-abstract class BoardCreator {
-	private HashMap<Point , Cell> board = new HashMap<Point , Cell>();
+class BoardCreator {
 	private final int width;
 	private final int height;
 	private MineSetter mineSetter;
@@ -18,7 +17,7 @@ abstract class BoardCreator {
 	}
 	
 	void setWalls(){
-		WallSetter wallSetter = new WallSetter(width, height, board);
+		WallSetter wallSetter = new WallSetter(width, height, mineSetter.getBoard());
 		wallSetter.setWalls();
 	}
 	
@@ -27,11 +26,28 @@ abstract class BoardCreator {
 	}
 
 	void setNumbers(){
-		NumberSetter numberSetter = new NumberSetter(width, height, board);
+		NumberSetter numberSetter = new NumberSetter(width, height, mineSetter.getBoard());
 		numberSetter.setNumbers();
 	}
 	
-	HashMap<Point , Cell> getBoard(){
-		return board;
+	int getWidth(){
+		return width;
+	}
+	
+	int getHeight(){
+		return height;
+	}
+	
+	HashMap<Point, Cell> getBoard(){
+		return mineSetter.getBoard();
+	}
+	
+	void printBoard(){
+		for(int y = height; y > 0; y--){
+			for(int x = 1; x<width+1; x++){
+				System.out.print(mineSetter.getBoard().get(new Point(x,y)));
+			}
+			System.out.println();
+		}
 	}
 }

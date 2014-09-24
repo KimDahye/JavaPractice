@@ -9,10 +9,9 @@ public class ManualMineSetter extends CellSetter implements MineSetter {
 	ManualMineSetter(int width, int height, HashMap<Point, Cell> board) {
 		super(width, height, board);
 	}
-
-	MineSetter mineSetter;
 	
 	public void setMines(int n) {
+		/*
 		Scanner scanner = new Scanner(System.in);
 		for(int count = 0; count<n; count++){
 			int x, y;
@@ -23,6 +22,15 @@ public class ManualMineSetter extends CellSetter implements MineSetter {
 			setMine(new Point(x,y));
 		}
 		scanner.close();
+		*/
+		//테스트 용
+		setMine(new Point(2, 2));
+		setMine(new Point(2, 4));
+		setMine(new Point(3, 5));
+		setMine(new Point(4, 3));
+		setMine(new Point(4, 5));
+		setMine(new Point(6, 6));
+		//
 	}
 	
 	@Override
@@ -30,5 +38,9 @@ public class ManualMineSetter extends CellSetter implements MineSetter {
 		// TODO Auto-generated method stub
 		isValidPoint(point);
 		board.put(point, new Cell(Type.MINE));
+	}
+	
+	public HashMap<Point, Cell> getBoard(){
+		return board;
 	}
 }

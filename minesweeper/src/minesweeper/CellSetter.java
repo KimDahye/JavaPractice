@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public abstract class CellSetter {
 	HashMap<Point , Cell> board = new HashMap<Point , Cell>();
-	final int width;
-	final int height;
+	protected final int width;
+	protected final int height;
 	
 	CellSetter(int width, int height, HashMap<Point, Cell> board){
 		this.board = board;
