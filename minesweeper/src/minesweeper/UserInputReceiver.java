@@ -43,6 +43,9 @@ public class UserInputReceiver {
 				scanner.nextLine();
 				System.out.println("상태를 숫자로 입력해주세요.");
 				continue;
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+				continue;
 			}
 		}while(!isValidStatus(resultStatus));
 		return resultStatus;
