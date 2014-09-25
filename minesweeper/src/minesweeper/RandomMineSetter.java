@@ -1,6 +1,7 @@
 package minesweeper;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class RandomMineSetter implements MineSetter {
 	ManualMineSetter manualMineSetter;
@@ -15,11 +16,24 @@ public class RandomMineSetter implements MineSetter {
 
 	@Override
 	public void setMines(int n) {
-		// TODO Auto-generated method stub
-		//Random하게 지뢰 n개 배치하는 메소드.
+		int count = 0;
+		while(count < n){
+			int x = RandomMinMax(1, manualMineSetter.width);
+			int y = RandomMinMax(1, manualMineSetter.height);
+			Point point = new Point(x,y);
+			if(!manualMineSetter.getBoard().containsKey(point)){
+				manualMineSetter.setMine(point);
+				count++;
+			}
+		}
 	}
 	
 	public HashMap<Point, Cell> getBoard(){
 		return manualMineSetter.getBoard();
+	}
+	
+	private int RandomMinMax(int min, int max){
+		Random random = new Random();
+		return random.nextInt(max)+min;
 	}
 }

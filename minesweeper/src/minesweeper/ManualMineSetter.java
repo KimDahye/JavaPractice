@@ -11,7 +11,7 @@ public class ManualMineSetter extends CellSetter implements MineSetter {
 	}
 	
 	public void setMines(int n) {
-		/*
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		for(int count = 0; count<n; count++){
 			int x, y;
@@ -21,16 +21,6 @@ public class ManualMineSetter extends CellSetter implements MineSetter {
 			y = Integer.parseInt(scanner.nextLine());
 			setMine(new Point(x,y));
 		}
-		scanner.close();
-		*/
-		//테스트 용
-		setMine(new Point(2, 2));
-		setMine(new Point(2, 4));
-		setMine(new Point(3, 5));
-		setMine(new Point(4, 3));
-		setMine(new Point(4, 5));
-		setMine(new Point(6, 6));
-		//
 	}
 	
 	@Override

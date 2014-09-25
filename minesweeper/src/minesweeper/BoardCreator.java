@@ -2,7 +2,6 @@ package minesweeper;
 
 import java.util.HashMap;
 
-
 class BoardCreator {
 	private final int width;
 	private final int height;

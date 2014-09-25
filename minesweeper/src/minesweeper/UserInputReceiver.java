@@ -1,11 +1,10 @@
 package minesweeper;
 
 import java.util.InputMismatchException;
+import minesweeper.Cell.Status;
 import java.util.Scanner;
 
 public class UserInputReceiver {
-	final static int CLICKED = 0; //얘네 enum으로 바꿀까 고민중...
-	final static int FLAGED = 1;
 	
 	private UserInputReceiver(){}
 	
@@ -25,28 +24,28 @@ public class UserInputReceiver {
 				System.out.println("좌표를 숫자로 입력해주세요.");
 				continue;
 			}catch(Exception e){
-				e.getMessage();
+				System.out.println(e.getMessage());
 				continue;
 			}
 		}while(!isValidPoint(point, width, height));
 		return point;
 	}
 	
-	static int getStatus(){
+	static Status getStatus(){
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-		int result = -1;
+		Status resultStatus = null;
 		do{
 			try{
 				System.out.println("어떻게 상태를 바꾸시겠습니까? 클릭(0), 깃발(1)");
-				result = scanner.nextInt();
+				resultStatus = changeIntToStatus(scanner.nextInt());
 			}catch(InputMismatchException e){
 				scanner.nextLine();
 				System.out.println("상태를 숫자로 입력해주세요.");
 				continue;
 			}
-		}while(!isValidStatus(result));
-		return result;
+		}while(!isValidStatus(resultStatus));
+		return resultStatus;
 	}
 	
 	private static boolean isValidPoint(Point point, int width, int height){
@@ -73,10 +72,20 @@ public class UserInputReceiver {
 		return true;
 	}
 	
-	private static boolean isValidStatus(int status){
-		if(status == CLICKED || status == FLAGED){
+	private static boolean isValidStatus(Status status){
+		if(status == Status.CLICKED || status == Status.FLAGED){
 			return true;
 		}
 		return false;
+	}
+	
+	private static Status changeIntToStatus(int resultInt){
+		if(resultInt == 0){
+			return Status.CLICKED;
+		}
+		if(resultInt == 1){
+			return Status.FLAGED;
+		}
+		throw new IllegalArgumentException();
 	}
 }

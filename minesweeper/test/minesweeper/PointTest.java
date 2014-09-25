@@ -11,7 +11,7 @@ public class PointTest extends TestCase {
 	
 	public void testWhenXIsLowerThan1() throws Exception {
 		try{
-			Point pt = new Point(0,4);
+			new Point(0,4);
 		}catch(Exception e){
 			assertTrue(true);
 		}
@@ -19,7 +19,7 @@ public class PointTest extends TestCase {
 	
 	public void testWhenYIsLowerThan1() throws Exception {
 		try{
-			Point pt = new Point(5,0);
+			new Point(5,0);
 		}catch(Exception e){
 			assertTrue(true);
 		}
