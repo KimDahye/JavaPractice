@@ -1,7 +1,7 @@
 package minesweeper;
 
-class Cell {
-	enum Type { 
+public class Cell {
+	public enum Type { 
 		ZERO(0), ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), MINE(9), WALL(10);
 		public final int id;
 		
@@ -14,28 +14,23 @@ class Cell {
 		}
 	}
 	
-	enum Status { 
+	public enum Status { 
 		UNCHECKED, FLAGED, CLICKED 
 	}
 	
 	private final Type type;
 	private Status status;
 	
-	Cell(Type type){
+	public Cell(Type type){
 		this.type = type;
 		this.status = Status.UNCHECKED;
 	}
 	
-	Cell(int type){
-		this.type = Type.values()[type];
-		this.status = Status.UNCHECKED;
+	public Cell(int type){
+	    this(Type.values()[type]);
 	}
 	
-	Status getStatus(){
-		return status;
-	}
-	
-	void setStatus(Status status){
+	public void setStatus(Status status){
 		this.status = status;
 	}
 	
@@ -56,14 +51,14 @@ class Cell {
 		return "["+String.valueOf(type.getId())+"]";
 	}
 	
-	boolean isSameTypeWith(Type type){
+	public boolean isSameTypeWith(Type type){
 		if(this.type == type){
 			return true;
 		}
 		return false;
 	}
 	
-	boolean isSameStatusWith(Status status){
+	public boolean isSameStatusWith(Status status){
 		if(this.status == status){
 			return true;
 		}

@@ -2,6 +2,9 @@ package minesweeper;
 
 import java.util.HashMap;
 
+import cellSetter.ManualMineSetter;
+import cellSetter.RandomMineSetter;
+
 public class BoardCreatorFactory {
 	private BoardCreatorFactory() {}
 	

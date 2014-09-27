@@ -1,11 +1,14 @@
-package minesweeper;
+package cellSetter;
 
 import java.util.HashMap;
 import java.util.Random;
 
+import minesweeper.Cell;
+import minesweeper.Point;
+
 public class RandomMineSetter implements MineSetter {
 	ManualMineSetter manualMineSetter;
-	RandomMineSetter(int width, int height, HashMap<Point, Cell> board) {
+	public RandomMineSetter(int width, int height, HashMap<Point, Cell> board) {
 		manualMineSetter = new ManualMineSetter(width, height, board);
 	}
 

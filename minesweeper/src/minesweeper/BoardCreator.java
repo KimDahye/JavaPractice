@@ -2,7 +2,11 @@ package minesweeper;
 
 import java.util.HashMap;
 
-class BoardCreator {
+import cellSetter.MineSetter;
+import cellSetter.NumberSetter;
+import cellSetter.WallSetter;
+
+public class BoardCreator {
 	private final int width;
 	private final int height;
 	private MineSetter mineSetter;
@@ -27,19 +31,19 @@ class BoardCreator {
 		numberSetter.setNumbers();
 	}
 	
-	int getWidth(){
+	public int getWidth(){
 		return width;
 	}
 	
-	int getHeight(){
+	public int getHeight(){
 		return height;
 	}
 	
-	HashMap<Point, Cell> getBoard(){
+	public HashMap<Point, Cell> getBoard(){
 		return mineSetter.getBoard();
 	}
 	
-	void printBoard(){
+	public void printBoard(){
 		for(int y = height; y > 0; y--){
 			System.out.print(y+"\t");
 			for(int x = 1; x<width+1; x++){

@@ -1,8 +1,10 @@
-package minesweeper;
+package gameRunner;
 
+import minesweeper.BoardCreator;
+import minesweeper.Point;
 import minesweeper.Cell.Status;
 
-class GameRunner {
+public class GameRunner {
 	BoardCreator boardCreator;
 	final private int NUM_OF_MINES;
 
@@ -10,12 +12,12 @@ class GameRunner {
 		NOT_ENDED, WIN, LOSE; 
 	}
 	
-	GameRunner(BoardCreator boardCreator, int NUM_OF_MINES){
+	public GameRunner(BoardCreator boardCreator, int NUM_OF_MINES){
 		this.boardCreator = boardCreator;
 		this.NUM_OF_MINES = NUM_OF_MINES;
 	}
 	
-	void run(){
+	public void run(){
 		while(whatsGameStatus() == GameStatus.NOT_ENDED){
 			printCurrentBoard();
 			Point point = receivePoint();

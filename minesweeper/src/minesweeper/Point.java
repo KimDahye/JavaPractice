@@ -4,7 +4,7 @@ public class Point {
 	private final int x;
 	private final int y;
 	
-	Point(int x, int y){
+	public Point(int x, int y){
 		if(x < 0){
 			throw new IllegalArgumentException("x값이 유용한 범위가 아닙니다.");
 		}
@@ -16,13 +16,38 @@ public class Point {
 		this.y = y;
 	}
 	
-	int getX(){
+	public int getX(){
 		return x;
 	}
 	
-	int getY(){
+	public int getY(){
 		return y;
 	}
+	
+	public void isValid(int width, int height){
+		if(x < 1){
+			throw new IllegalArgumentException("x값은 1 이상이어야 합니다.");
+		}
+		if(y < 1){
+			throw new IllegalArgumentException("y값은 1 이상이어야 합니다.");
+		}
+		if(x > width){
+			throw new IllegalArgumentException(String.format("x값이 가로 최대 범위를 초과하였습니다. 가로 최대범위는 %d", width));
+		}
+		if(y > height){
+			throw new IllegalArgumentException(String.format("y값이 세로 최대 범위를 초과하였습니다. 세로 최대범위는 %d", height));
+		}
+	}
+	
+	public void isValidContainingWall(int width, int height){
+		if(x > width+1){
+			throw new IllegalArgumentException();
+		}
+		if(y > height+1){
+			throw new IllegalArgumentException();
+		}
+	}
+
 
 	@Override
 	public int hashCode() {

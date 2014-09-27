@@ -1,10 +1,13 @@
-package minesweeper;
+package gameRunner;
+
+import gameRunner.GameRunner.GameStatus;
 
 import java.util.HashMap;
 
+import minesweeper.Cell;
+import minesweeper.Point;
 import minesweeper.Cell.Status;
 import minesweeper.Cell.Type;
-import minesweeper.GameRunner.GameStatus;
 
 public class GameJudge {
 	private GameJudge(){	}

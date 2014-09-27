@@ -1,12 +1,14 @@
-package minesweeper;
+package cellSetter;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
+import minesweeper.Cell;
+import minesweeper.Point;
 import minesweeper.Cell.Type;
 
 public class ManualMineSetter extends CellSetter implements MineSetter {
-	ManualMineSetter(int width, int height, HashMap<Point, Cell> board) {
+	public ManualMineSetter(int width, int height, HashMap<Point, Cell> board) {
 		super(width, height, board);
 	}
 	
@@ -25,8 +27,7 @@ public class ManualMineSetter extends CellSetter implements MineSetter {
 	
 	@Override
 	public void setMine(Point point) {
-		// TODO Auto-generated method stub
-		isValidPoint(point);
+		point.isValid(width, height);
 		board.put(point, new Cell(Type.MINE));
 	}
 	

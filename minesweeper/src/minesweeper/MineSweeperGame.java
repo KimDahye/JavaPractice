@@ -1,5 +1,7 @@
 package minesweeper;
 
+import gameRunner.GameRunner;
+
 class MineSweeperGame {
 	BoardCreator boardCreator;
 	final private int NUM_OF_MINES;  
