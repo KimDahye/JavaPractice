@@ -1,8 +1,8 @@
 package gameRunner;
 
+import cell.Cell.Status;
 import minesweeper.BoardCreator;
 import minesweeper.Point;
-import minesweeper.Cell.Status;
 
 public class GameRunner {
 	BoardCreator boardCreator;

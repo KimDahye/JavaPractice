@@ -2,6 +2,7 @@ package minesweeper;
 
 import java.util.HashMap;
 
+import cell.Cell;
 import cellSetter.ManualMineSetter;
 import cellSetter.RandomMineSetter;
 

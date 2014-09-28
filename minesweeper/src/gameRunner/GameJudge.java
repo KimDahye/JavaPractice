@@ -4,10 +4,10 @@ import gameRunner.GameRunner.GameStatus;
 
 import java.util.HashMap;
 
-import minesweeper.Cell;
+import cell.Cell;
+import cell.Cell.Status;
+import cell.MineCell;
 import minesweeper.Point;
-import minesweeper.Cell.Status;
-import minesweeper.Cell.Type;
 
 public class GameJudge {
 	private GameJudge(){	}
@@ -16,10 +16,10 @@ public class GameJudge {
 		int count = 0;
 		for(Point key : board.keySet()){
 			Cell valueByKey = board.get(key);
-			if(valueByKey.isSameTypeWith(Type.MINE) && valueByKey.isSameStatusWith(Status.CLICKED)){
+			if(valueByKey instanceof MineCell && valueByKey.isSameStatusWith(Status.CLICKED)){
 				return GameStatus.LOSE;
 			}
-			if(valueByKey.isSameTypeWith(Type.MINE) && valueByKey.isSameStatusWith(Status.FLAGED)){
+			if(valueByKey instanceof MineCell && valueByKey.isSameStatusWith(Status.FLAGED)){
 				count++;
 			}
 		}

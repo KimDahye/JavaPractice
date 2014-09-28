@@ -3,7 +3,7 @@ package cellSetter;
 import java.util.HashMap;
 import java.util.Random;
 
-import minesweeper.Cell;
+import cell.Cell;
 import minesweeper.Point;
 
 public class RandomMineSetter implements MineSetter {

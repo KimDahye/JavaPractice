@@ -2,10 +2,10 @@ package minesweeper;
 
 import java.util.HashMap;
 
+import cell.Cell;
 import cellSetter.ManualMineSetter;
 import cellSetter.NumberSetter;
 import cellSetter.WallSetter;
-import minesweeper.Cell.Type;
 import junit.framework.TestCase;
 
 public class NumberSetterTest extends TestCase {
@@ -35,11 +35,15 @@ public class NumberSetterTest extends TestCase {
 		//1 * 3 *
 		//2 2 2 1
 		//* 1 0 0
-		
-		assertTrue(manualMineSetter.getBoard().get(new Point(3,3)).isSameTypeWith(Type.THREE));
-		assertTrue(manualMineSetter.getBoard().get(new Point(2,4)).isSameTypeWith(Type.TWO));
-		assertTrue(manualMineSetter.getBoard().get(new Point(2,1)).isSameTypeWith(Type.ONE));
-		assertTrue(manualMineSetter.getBoard().get(new Point(3,1)).isSameTypeWith(Type.ZERO));
+		manualMineSetter.getBoard().get(new Point(3,3)).clicked();
+		manualMineSetter.getBoard().get(new Point(2,4)).clicked();
+		manualMineSetter.getBoard().get(new Point(2,1)).clicked();
+		manualMineSetter.getBoard().get(new Point(3,1)).clicked();
+
+		assertEquals(manualMineSetter.getBoard().get(new Point(3,3)).toString(), "[3]");
+		assertEquals(manualMineSetter.getBoard().get(new Point(2,4)).toString(), "[2]");
+		assertEquals(manualMineSetter.getBoard().get(new Point(2,1)).toString(), "[1]");
+		assertEquals(manualMineSetter.getBoard().get(new Point(3,1)).toString(), "[0]");
 	}
 
 }

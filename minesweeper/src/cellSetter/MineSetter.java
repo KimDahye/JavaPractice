@@ -2,7 +2,7 @@ package cellSetter;
 
 import java.util.HashMap;
 
-import minesweeper.Cell;
+import cell.Cell;
 import minesweeper.Point;
 
 public interface MineSetter{

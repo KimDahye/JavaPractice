@@ -67,7 +67,7 @@ public class Main {
 			throw new IllegalArgumentException("4 이상으로 입력해주세요.");
 		}
 		if(n > 40){
-			throw new IllegalArgumentException("40 이하로 입력해주세요. 콘솔게임이라 40 초과하면 게임하기가 어렵습니다.");
+			throw new IllegalArgumentException("40 이하로 입력해주세요. 콘솔게임이라 40을 초과하면 게임하기가 어렵습니다.");
 		}
 	}
 	

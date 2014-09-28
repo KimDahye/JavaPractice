@@ -1,10 +1,12 @@
 package gameRunner;
 
 import java.util.InputMismatchException;
+
 import minesweeper.Point;
-import minesweeper.Cell.Status;
 
 import java.util.Scanner;
+
+import cell.Cell.Status;
 
 public class UserInputReceiver {
 	

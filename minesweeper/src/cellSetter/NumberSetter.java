@@ -3,9 +3,10 @@ package cellSetter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import minesweeper.Cell;
+import cell.Cell;
+import cell.MineCell;
+import cell.NumberCell;
 import minesweeper.Point;
-import minesweeper.Cell.Type;
 
 public class NumberSetter extends CellSetter{
 	public NumberSetter(int width, int height, HashMap<Point, Cell> board){
@@ -22,11 +23,11 @@ public class NumberSetter extends CellSetter{
 	
 	void setNumber(Point point){
 		point.isValid(width, height);
-		if(board.containsKey(point) && board.get(point).isSameTypeWith(Type.MINE)){
+		if(board.containsKey(point) && board.get(point) instanceof MineCell){
 			return;
 		}
 		int count = howManyMinesAround(point);
-		board.put(point, new Cell(count));
+		board.put(point, new NumberCell(count));
 	}
 
 	private int howManyMinesAround(Point point){
@@ -34,7 +35,7 @@ public class NumberSetter extends CellSetter{
 		int count = 0;
 		ArrayList<Point> surroundingPoints = getSurroundingPoints(new Point(point.getX(), point.getY()));
 		for(Point surroundingPoint : surroundingPoints){
-			if(board.containsKey(surroundingPoint) && board.get(surroundingPoint).isSameTypeWith(Type.MINE)){
+			if(board.containsKey(surroundingPoint) && board.get(surroundingPoint) instanceof MineCell){
 				count++;
 			}
 		}
