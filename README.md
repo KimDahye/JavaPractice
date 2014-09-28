@@ -1,4 +1,4 @@
-JavaPractice
+JavaPractice - 최종 구현한 것은 finalProject 브랜치에 있습니다.
 ========================
 <최종과제 요구사항>
 <p>* 지뢰찾기를 구현한다.</p>
