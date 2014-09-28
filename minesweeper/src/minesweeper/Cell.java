@@ -30,8 +30,12 @@ public class Cell {
 	    this(Type.values()[type]);
 	}
 	
-	public void setStatus(Status status){
-		this.status = status;
+	public void flaged(){
+		this.status = Status.FLAGED;
+	}
+	
+	public void clicked(){
+		this.status = Status.CLICKED;
 	}
 	
 	public String toString(){

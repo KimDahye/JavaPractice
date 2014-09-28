@@ -1,8 +1,6 @@
 package gameRunner;
 
 import java.util.InputMismatchException;
-
-import minesweeper.Cell;
 import minesweeper.Point;
 import minesweeper.Cell.Status;
 
@@ -72,6 +70,6 @@ public class UserInputReceiver {
 		if(resultInt == 1){
 			return Status.FLAGED;
 		}
-		throw new IllegalArgumentException();
+		throw new IllegalArgumentException("0과 1 중 하나로만 입력해주세요.");
 	}
 }

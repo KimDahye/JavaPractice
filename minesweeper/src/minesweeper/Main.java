@@ -26,11 +26,12 @@ public class Main {
 	}
 
 	private static String receiveString() {
+		String result;
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("다시 하시겠습니까?(다시 하시려면 y 를 입력, 끝내시려면 아무키 입력)");
-		String x = scanner.nextLine();
-		return x;
+		result = scanner.nextLine();
+		return result;
 	}
 
 	static private int receiveNum(String what, int max){
